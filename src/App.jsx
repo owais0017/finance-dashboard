@@ -4,6 +4,7 @@ import Layout from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
 import Transactions from "./pages/Transactions";
 import Insights from "./pages/Insights";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const { darkMode } = useSelector((state) => state.theme);
@@ -17,6 +18,7 @@ function App() {
             <Route path="transactions" element={<Transactions />} />
             <Route path="insights" element={<Insights />} />
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>

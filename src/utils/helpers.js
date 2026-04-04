@@ -52,3 +52,38 @@ export function getSummary(transactions) {
     transactionCount: transactions.length,
   };
 }
+
+export function exportToCSV(transactions) {
+  const headers = ["Date", "Description", "Category", "Type", "Amount"];
+  const rows = transactions.map((t) => [
+    t.date,
+    t.description,
+    t.category,
+    t.type,
+    Math.abs(t.amount),
+  ]);
+
+  const csvContent = [headers, ...rows]
+    .map((row) => row.join(","))
+    .join("\n");
+
+  const blob = new Blob([csvContent], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "transactions.csv";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+export function exportToJSON(transactions) {
+  const blob = new Blob([JSON.stringify(transactions, null, 2)], {
+    type: "application/json",
+  });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "transactions.json";
+  a.click();
+  URL.revokeObjectURL(url);
+}
