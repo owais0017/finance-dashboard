@@ -30,6 +30,7 @@ A modern, interactive finance dashboard built with React.js, Redux Toolkit, and 
 | Framer Motion | Animations and transitions |
 
 ## 📁 Project Structure
+```text
 src/
 ├── components/        # Reusable UI components
 │   ├── Layout.jsx
@@ -52,7 +53,8 @@ src/
 ├── data/              # Mock data
 │   └── mockData.js
 └── utils/             # Helper functions
-└── helpers.js
+    └── helpers.js
+```
 ## ⚙️ Setup Instructions
 
 ### Prerequisites
